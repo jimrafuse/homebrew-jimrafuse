@@ -13,7 +13,7 @@ class RubyJimrafuse < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libyaml"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "readline"
 
   # Should be updated only when Ruby is updated (if an update is available).
@@ -38,7 +38,7 @@ class RubyJimrafuse < Formula
 
     system "autoconf" if build.head?
 
-    paths = %w[libyaml openssl readline].map { |f| Formula[f].opt_prefix }
+    paths = %w[libyaml openssl@1.1 readline].map { |f| Formula[f].opt_prefix }
     args = %W[
       --prefix=#{prefix}
       --enable-shared

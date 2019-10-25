@@ -9,8 +9,6 @@ class RubyJimrafuse < Formula
     depends_on "autoconf" => :build
   end
 
-  # keg_only :provided_by_macos
-
   depends_on "pkg-config" => :build
   depends_on "libyaml"
   depends_on "openssl@1.1"
@@ -46,6 +44,7 @@ class RubyJimrafuse < Formula
       --with-sitedir=#{HOMEBREW_PREFIX}/lib/ruby/site_ruby
       --with-vendordir=#{HOMEBREW_PREFIX}/lib/ruby/vendor_ruby
       --with-opt-dir=#{paths.join(":")}
+      --without-gmp
     ]
     args << "--disable-dtrace" unless MacOS::CLT.installed?
 

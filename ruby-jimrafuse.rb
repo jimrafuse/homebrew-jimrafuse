@@ -4,11 +4,6 @@ class RubyJimrafuse < Formula
   url "https://cache.ruby-lang.org/pub/ruby/2.6/ruby-2.6.5.tar.xz"
   sha256 "d5d6da717fd48524596f9b78ac5a2eeb9691753da5c06923a6c31190abe01a62"
 
-  head do
-    url "https://github.com/ruby/ruby.git", :branch => "trunk"
-    depends_on "autoconf" => :build
-  end
-
   depends_on "pkg-config" => :build
   depends_on "libyaml"
   depends_on "openssl@1.1"
@@ -132,7 +127,7 @@ class RubyJimrafuse < Formula
           "#{api_version}"
         ]
 
-        @default_dir ||= File.join(*path)
+        @homebrew_path ||= File.join(*path)
       end
 
       def self.private_dir
@@ -162,9 +157,9 @@ class RubyJimrafuse < Formula
 
       def self.default_path
         if Gem.user_home && File.exist?(Gem.user_home)
-          [user_dir, default_dir, private_dir]
+          [user_dir, default_dir, old_default_dir, private_dir]
         else
-          [default_dir, private_dir]
+          [default_dir, old_default_dir, private_dir]
         end
       end
 
@@ -174,6 +169,13 @@ class RubyJimrafuse < Formula
 
       def self.ruby
         "#{opt_bin}/ruby"
+      end
+
+      # https://github.com/Homebrew/homebrew-core/issues/40872#issuecomment-542092547
+      class BasicSpecification
+        def self.default_specifications_dir
+          File.join(Gem.old_default_dir, "specifications", "default")
+        end
       end
     end
   EOS

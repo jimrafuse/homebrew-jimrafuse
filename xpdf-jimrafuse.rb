@@ -4,7 +4,7 @@ class XpdfJimrafuse < Formula
 
   # JR: Cannot update to 4.02 as Qt requirement is baked in somewhere.
 
-  url "https://xpdfreader-dl.s3.amazonaws.com/xpdf-4.01.01.tar.gz"
+  url "https://xpdfreader-dl.s3.amazonaws.com/old/xpdf-4.01.01.tar.gz"
   sha256 "ba550c7d3e4f73b1833cfcdcd9dbe39849dd0cd459b6774c4ecdfeca993204a4"
 
   depends_on "cmake" => :build

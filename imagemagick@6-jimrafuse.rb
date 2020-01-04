@@ -4,8 +4,8 @@ class ImagemagickAT6Jimrafuse < Formula
   # Please always keep the Homebrew mirror as the primary URL as the
   # ImageMagick site removes tarballs regularly which means we get issues
   # unnecessarily and older versions of the formula are broken.
-  url "https://www.imagemagick.org/download/releases/ImageMagick-6.9.10-82.tar.xz"
-  sha256 "10fddb4e9da45029bbf1458a995e723c33ba1449654d327a1bc00608c54e82ae"
+  url "https://www.imagemagick.org/download/releases/ImageMagick-6.9.10-83.tar.xz"
+  sha256 "71b7db8384446a93af799b5ee5b50c787864566ad944d7f1edd6ffe2d6ac435c"
   head "https://github.com/imagemagick/imagemagick6.git"
 
   depends_on "pkg-config" => :build

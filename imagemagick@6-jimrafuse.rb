@@ -25,6 +25,9 @@ class ImagemagickAT6Jimrafuse < Formula
   skip_clean :la
 
   def install
+    # Avoid references to shim
+    inreplace Dir["**/*-config.in"], "@PKG_CONFIG@", Formula["pkg-config"].opt_bin/"pkg-config"
+
     args = %W[
       --disable-osx-universal-binary
       --prefix=#{prefix}
